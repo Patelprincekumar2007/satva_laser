@@ -1,0 +1,228 @@
+/* ═══════════════════════════════════════════════════════
+   SATVA LASER — Enhanced Loader
+   ═══════════════════════════════════════════════════════ */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader .lattice-bg { opacity: 0.5; }
+
+.loader-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo Mark */
+.loader-mark-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+.loader-mark {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.loader-mark path {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.3;
+}
+
+/* Glow ring around the logo */
+.loader-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 161, 91, 0.12) 0%, transparent 70%);
+  animation: loader-glow-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes loader-glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Spark */
+.loader-spark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px;
+  border-radius: 50%;
+  background: #fff8ec;
+  opacity: 0;
+  box-shadow:
+    0 0 12px 4px rgba(230, 150, 60, 0.95),
+    0 0 35px 14px rgba(223, 90, 44, 0.6);
+  pointer-events: none;
+}
+
+/* Spark trail particles */
+.spark-trail {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(230, 150, 60, 0.8);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Floating ember particles */
+.loader-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: var(--brass);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+.loader-particle.large {
+  width: 3px;
+  height: 3px;
+  box-shadow: 0 0 6px 2px rgba(198, 161, 91, 0.4);
+}
+
+/* Text elements */
+.loader-word {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--parchment);
+  opacity: 0;
+  letter-spacing: 0.02em;
+}
+
+.loader-tagline {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--brass-soft);
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--brass);
+}
+
+.loader-sub {
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  opacity: 0;
+}
+
+/* Progress bar at bottom */
+.loader-progress {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(280px, 60vw);
+  height: 1px;
+  background: rgba(198, 161, 91, 0.15);
+  z-index: calc(var(--z-loader) + 1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.loader-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brass-deep), var(--brass), var(--ember));
+  border-radius: 1px;
+  transition: none;
+}
+
+/* Split panels */
+.loader-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 51%;
+  background: var(--ink);
+  z-index: 1;
+}
+.loader-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(0deg, transparent, rgba(230, 150, 60, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.loader-panel.left { left: 0; }
+.loader-panel.left::after { right: -1px; }
+.loader-panel.right { right: 0; }
+.loader-panel.right::after { left: -1px; }
+.loader-panel.glowing::after { opacity: 1; }
+
+/* ═══════════════════════════════════════════════════════
+   Page transition overlay — reuses the loader mark language
+   ═══════════════════════════════════════════════════════ */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  pointer-events: none;
+  display: none;
+}
+.page-transition.active {
+  display: block;
+  pointer-events: all;
+}
+/* The transition panels start off-screen; GSAP sweeps them in */
+.page-transition .loader-panel { transform: translateX(0); }
+.page-transition .loader-panel.left { left: 0; }
+.page-transition .loader-panel.right { right: 0; }
+
+.pt-mark-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  z-index: 2;
+  opacity: 0;
+}
+.pt-mark {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.pt-mark .pt-path {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.3;
+}
+.pt-spark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  margin: -4px;
+  border-radius: 50%;
+  background: #fff8ec;
+  opacity: 0;
+  box-shadow:
+    0 0 12px 4px rgba(230, 150, 60, 0.95),
+    0 0 35px 14px rgba(223, 90, 44, 0.6);
+  pointer-events: none;
+}

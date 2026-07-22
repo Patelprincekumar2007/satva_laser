@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio — Satva Laser</title>
+<meta name="description" content="Learn about Satva Laser's seven-year journey in precision laser cutting — our story, equipment, materials, and commitment to quality.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader-panel left"></div><div class="loader-panel right"></div>
+  <div class="lattice-bg"></div>
+  <div class="loader-inner">
+    <div class="loader-glow"></div>
+    <div class="loader-mark-wrap">
+      <svg class="loader-mark" viewBox="0 0 200 200"><path id="loaderPath" d="M100 8 L192 100 L100 192 L8 100 Z M100 54 L146 100 L100 146 L54 100 Z"/></svg>
+      <div class="loader-spark" id="loaderSpark"></div>
+    </div>
+    <div class="loader-word serif">Satva Laser</div>
+    <div class="loader-tagline serif" style="width:0;overflow:hidden;">Cutting with Precision</div>
+    <div class="loader-sub">Precision Metal Craft — <span id="loaderPct">0</span>%</div>
+  </div>
+  <div class="loader-progress"><div class="loader-progress-fill"></div></div>
+</div>
+<div class="scroll-progress"></div>
+<header class="nav">
+  <a href="index.html" class="brand-mark"><svg viewBox="0 0 40 40" fill="none"><path d="M20 3 L34 20 L20 37 L6 20 Z" stroke="#c6a15b" stroke-width="1.1"/><path d="M20 11 L28 20 L20 29 L12 20 Z" stroke="#c6a15b" stroke-width="1.1"/></svg></a>
+  <nav class="nav-pill"><a href="index.html">Home</a><a href="products.html">Products</a><a href="gallery.html">Gallery</a><a href="studio.html" class="active">Studio</a><a href="services.html">Services</a><a href="contact.html">Contact</a><a class="nav-cta" href="contact.html">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a></nav>
+  <div class="nav-right">
+    <button class="nav-cart" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-badge">0</span></button>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav-overlay"></div>
+<nav class="mobile-nav"><a href="index.html">Home</a><a href="products.html">Products</a><a href="gallery.html">Gallery</a><a href="studio.html" class="active">Studio</a><a href="services.html">Services</a><a href="contact.html">Contact</a></nav>
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <div class="cart-header"><h3>Your Inquiry List</h3><button class="cart-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+  <div class="cart-items"></div>
+  <div class="cart-footer hidden"><div class="cart-total"><span class="label">Items selected</span><span class="value">0 items</span></div><button class="btn-whatsapp cart-checkout"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>Send Inquiry via WhatsApp</button><div class="cart-clear">Clear all items</div></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero studio-hero">
+  <div class="studio-hero-bg">
+    <img src="/images/brochure/ChatGPT Image Jul 18, 2026, 01_43_22 PM - Copy.png" alt="CNC laser cutting machine in operation">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,var(--ink) 0%,rgba(20,16,11,0.5) 50%,rgba(20,16,11,0.3) 100%);"></div>
+  </div>
+  <div class="page-hero-content wrap" style="position:relative;z-index:2;">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Studio</span></div>
+    <span class="eyebrow">About Satva Laser</span>
+    <h1 class="serif">Seven years of cutting metal into art.</h1>
+    <p>From a single CNC machine in Gota to a trusted name among architects, interior designers and fabricators across Gujarat.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section>
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-content">
+        <span class="eyebrow">Our Story</span>
+        <h2 class="serif" style="font-size:var(--fs-h2);margin:16px 0 24px;">Quality over quantity, on purpose.</h2>
+        <p>Satva Laser is a trusted laser cutting factory in Ahmedabad, specializing in precision cutting for MS, SS, metal steel, aluminium, MDF, and Corten steel. Located in Gota, Ahmedabad, we serve architects, interior designers, fabricators, and businesses.</p>
+        <p>We offer designer metal panels, safety grills, MDF decorative panels, custom artwork, and architectural laser cut solutions with clean finishing, accurate execution, timely delivery, and value driven pricing.</p>
+        <p>Our commitment to quality over volume means every piece receives the attention it deserves — from pattern design to final finishing. We handle heavy-gauge metal thickness that most workshops turn away.</p>
+      </div>
+      <div class="story-image">
+        <img src="/images/brochure/ChatGPT Image Jul 18, 2026, 01_44_51 PM - Copy.png" alt="Satva Laser business brochure">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Materials We Work With</span>
+      <h2 class="serif">Six metals, one standard.</h2>
+      <p>Every material we cut is chosen for the project — not the other way round.</p>
+    </div>
+    <div class="materials-grid">
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <h4>Stainless Steel</h4>
+        <p>Our most popular material. Corrosion-resistant, elegant — ideal for partitions, murals and fittings.</p>
+      </div>
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <h4>Mild Steel (MS)</h4>
+        <p>Strong, affordable, versatile. Perfect for safety grills, heavy-duty screens and industrial applications.</p>
+      </div>
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><path d="M12 2l10 5v10l-10 5-10-5V7z"/></svg></div>
+        <h4>Brass</h4>
+        <p>Warm golden tones for luxury hardware — door handles, name plates and premium decorative pieces.</p>
+      </div>
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 4v16M16 4v16M4 8h16M4 16h16"/></svg></div>
+        <h4>Aluminium</h4>
+        <p>Lightweight and modern. Great for signage, decorative panels and outdoor applications.</p>
+      </div>
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M3 3h18M3 3v18M21 3v18"/><path d="M7 7h10v10H7z"/></svg></div>
+        <h4>MDF</h4>
+        <p>Medium-density fibreboard for interior decorative panels — affordable, lightweight, design-forward.</p>
+      </div>
+      <div class="material-card">
+        <div class="material-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+        <h4>Corten Steel</h4>
+        <p>Weathering steel with rustic patina. Perfect for garden screens and outdoor architectural features.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our Journey</span>
+      <h2 class="serif">Built one cut at a time.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">THE BEGINNING</div><h4>One Machine, One Vision</h4><p>Started with a single CNC laser cutter in Gota, Ahmedabad — driven by the belief that precision metalwork could be both functional and beautiful.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">GROWING</div><h4>Architect Collaborations</h4><p>Word spread through the architect community. Began receiving commissions for hotel lobbies, restaurant interiors, and luxury residences across Gujarat.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">EXPANDING</div><h4>In-House Product Line</h4><p>Launched our own range — bollard lamps, murals, door handles, wall clocks — bringing design and manufacturing under one roof.</p></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">TODAY</div><h4>7+ Years of Precision</h4><p>A trusted name for over seven years. Serving architects, interior designers, fabricators and homeowners — with the same commitment to quality that started it all.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Equipment</span>
+      <h2 class="serif">Industrial precision, artisan results.</h2>
+    </div>
+    <div class="equipment-grid">
+      <div class="equipment-card">
+        <img src="/images/brochure/ChatGPT Image Jul 18, 2026, 01_43_22 PM - Copy.png" alt="CNC Laser Cutting Machine" loading="lazy">
+        <div class="eq-label"><h4>CNC Laser Cutter</h4><p>High-power fiber laser for precision cuts</p></div>
+      </div>
+      <div class="equipment-card">
+        <img src="/images/brochure/ChatGPT Image Jul 18, 2026, 01_48_04 PM - Copy.png" alt="Metal finishing workshop" loading="lazy">
+        <div class="eq-label"><h4>Finishing Station</h4><p>Hand finishing — matte, glossy & brushed</p></div>
+      </div>
+      <div class="equipment-card">
+        <img src="/images/brochure/WhatsApp Image 2026-07-18 at 1.42.23 PM.jpeg" alt="PVD coating equipment" loading="lazy">
+        <div class="eq-label"><h4>PVD Coating Unit</h4><p>Professional surface treatment facility</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="wrap">
+    <span class="eyebrow">Visit the Studio</span>
+    <h2 class="serif" style="margin-top:16px;">Come see the floor where it happens.</h2>
+    <p>Walk through our workshop, see the machines run, touch the finishes. Book a studio visit today.</p>
+    <div class="cta-buttons">
+      <a class="btn-whatsapp" href="#" id="visitWA"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>Book a Studio Visit</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="lattice-bg"></div><div class="wrap"><div class="footer-brand-large"><div class="brand-name">Satva</div><div class="brand-tagline">Precision Laser-Cut Metal · Ahmedabad</div></div><div class="footer-grid"><div class="footer-about"><p>Trusted laser cutting factory specializing in precision cutting for MS, SS, aluminium, MDF, and Corten steel.</p></div><div class="footer-col"><div class="col-title">Studio</div><a href="index.html">Home</a><a href="studio.html">About Us</a><a href="services.html">Services</a></div><div class="footer-col"><div class="col-title">Work</div><a href="products.html">Products</a><a href="gallery.html">Gallery</a><a href="contact.html">Request a Quote</a></div><div class="footer-col"><div class="col-title">Contact</div><a href="mailto:satvalaser@gmail.com">satvalaser@gmail.com</a><a href="tel:+919909430941">+91 99094 30941</a></div></div><div class="footer-bottom"><span>&copy; Satva Laser — Gota, Ahmedabad</span><span>Cut by hand-guided precision.</span></div></div></footer>
+<button class="back-to-top" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
+<a class="whatsapp-float" href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="currentColor"/></svg></a>
+
+<script type="module">
+import './src/css/pages/studio.css';
+import { boot } from './src/js/main.js';
+import { openWhatsApp } from './src/js/whatsapp.js';
+window.__pageInit = function() {
+  document.getElementById('visitWA')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openWhatsApp('Hi Satva Laser! 👋\n\nI\'d like to *visit your studio* in Gota, Ahmedabad.\n\nPlease share available time slots for a factory tour.\n\nThank you!');
+  });
+};
+</script>
+</body>
+</html>

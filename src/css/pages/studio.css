@@ -1,0 +1,202 @@
+/* ═══════════════════════════════════════════════════════
+   SATVA LASER — Studio (About) Page
+   ═══════════════════════════════════════════════════════ */
+
+.studio-hero {
+  min-height: 65vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.studio-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.studio-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.studio-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, var(--ink) 0%, rgba(20,16,11,0.7) 40%, rgba(20,16,11,0.4) 100%);
+}
+
+/* Story Section */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .story-grid { grid-template-columns: 1fr 1fr; }
+}
+.story-content p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--ivory-dim);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.story-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 60px var(--shadow-deep);
+  border: 1px solid var(--line);
+}
+.story-image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* Materials Section */
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.material-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+.material-card:hover {
+  border-color: var(--brass);
+  transform: translateY(-4px);
+}
+.material-card .material-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: rgba(198, 161, 91, 0.1);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.material-card .material-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--brass);
+  fill: none;
+  stroke-width: 1.5;
+}
+.material-card h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--parchment);
+  margin-bottom: 8px;
+}
+.material-card p {
+  font-size: var(--fs-small);
+  color: var(--ivory-dim);
+  line-height: 1.5;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 48px auto 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  padding-bottom: 48px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: 17px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--brass);
+  background: var(--ink);
+}
+.timeline-item h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--parchment);
+  margin-bottom: 6px;
+}
+.timeline-item .timeline-year {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.timeline-item p {
+  font-size: var(--fs-small);
+  color: var(--ivory-dim);
+  line-height: 1.6;
+}
+
+/* Equipment Grid */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.equipment-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 16/10;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+.equipment-card:hover {
+  border-color: var(--brass);
+  transform: translateY(-4px);
+}
+.equipment-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+.equipment-card:hover img { transform: scale(1.06); }
+.equipment-card .eq-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(0deg, rgba(20,16,11,0.9), transparent);
+}
+.equipment-card .eq-label h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--parchment);
+  font-size: 1.1rem;
+}
+.equipment-card .eq-label p {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  margin-top: 4px;
+}

@@ -1,0 +1,191 @@
+/* ═══════════════════════════════════════════════════════
+   SATVA LASER — Gallery Page
+   ═══════════════════════════════════════════════════════ */
+
+.gallery-masonry {
+  columns: 2;
+  column-gap: 16px;
+  perspective: 1800px;
+}
+@media (min-width: 700px) { .gallery-masonry { columns: 3; } }
+@media (min-width: 1100px) { .gallery-masonry { columns: 4; } }
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal);
+}
+.gallery-item:hover {
+  border-color: var(--brass);
+  transform: translateY(-4px);
+}
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+
+.gallery-item .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(20,16,11,0.92) 0%, rgba(20,16,11,0.3) 40%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay .gallery-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--parchment);
+}
+.gallery-overlay .gallery-cat {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+.gallery-overlay .gallery-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.gallery-overlay .gallery-actions button {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.66rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+.gallery-overlay .btn-add {
+  background: var(--brass);
+  color: var(--ink);
+  border: 1px solid var(--brass);
+}
+.gallery-overlay .btn-add:hover {
+  background: var(--brass-soft);
+}
+.gallery-overlay .btn-view {
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid var(--line);
+}
+.gallery-overlay .btn-view:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  background: rgba(10, 8, 5, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-normal);
+}
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 85vw;
+  max-height: 85vh;
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+}
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+.lightbox-close:hover {
+  border-color: var(--brass);
+  transform: rotate(90deg);
+}
+.lightbox-close svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--ivory);
+  stroke-width: 2;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+.lightbox-nav:hover { border-color: var(--brass); }
+.lightbox-nav svg { stroke: var(--ivory); stroke-width: 2; width: 20px; height: 20px; fill: none; }
+.lightbox-prev { left: -70px; }
+.lightbox-next { right: -70px; }
+.lightbox-info {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.lightbox-info .lb-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--parchment);
+}
+.lightbox-info .lb-cat {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .lightbox-prev { left: 10px; }
+  .lightbox-next { right: 10px; }
+  .lightbox-close { top: -45px; right: 0; }
+}

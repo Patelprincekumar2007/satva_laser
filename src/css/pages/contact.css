@@ -1,0 +1,185 @@
+/* ═══════════════════════════════════════════════════════
+   SATVA LASER — Contact Page
+   ═══════════════════════════════════════════════════════ */
+
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 900px) {
+  .contact-split { grid-template-columns: 1fr 1fr; }
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--glass);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  font-size: var(--fs-small);
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(236, 228, 211, 0.3);
+}
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c6a15b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-group select option {
+  background: var(--ink);
+  color: var(--ivory);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* Map Section */
+.contact-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  height: 100%;
+  min-height: 400px;
+}
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: none;
+  filter: saturate(0.3) brightness(0.7) contrast(1.1);
+  transition: filter var(--duration-normal);
+}
+.contact-map:hover iframe {
+  filter: saturate(0.6) brightness(0.8) contrast(1.05);
+}
+
+/* Info Cards Row */
+.contact-info-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 60px;
+}
+
+/* FAQ Accordion */
+.faq-list {
+  max-width: 720px;
+  margin: 48px auto 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 0;
+  color: var(--parchment);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--duration-fast);
+}
+.faq-question:hover { color: var(--brass); }
+.faq-question svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--brass);
+  fill: none;
+  stroke-width: 2;
+  transition: transform var(--duration-normal) var(--ease-out);
+  flex-shrink: 0;
+}
+.faq-item.open .faq-question svg { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-normal) var(--ease-out),
+              padding var(--duration-normal) var(--ease-out);
+}
+.faq-item.open .faq-answer {
+  max-height: 300px;
+  padding-bottom: 22px;
+}
+.faq-answer p {
+  font-size: var(--fs-small);
+  color: var(--ivory-dim);
+  line-height: 1.65;
+}
+
+/* Business Hours */
+.hours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+.hours-card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+  transition: border-color var(--duration-fast);
+}
+.hours-card:hover { border-color: var(--brass); }
+.hours-card .day {
+  font-size: var(--fs-xs);
+  color: var(--brass);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.hours-card .time {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--parchment);
+}
+.hours-card.closed .time { color: var(--ember); }
